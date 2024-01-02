@@ -164,7 +164,7 @@ function calculate(b)
 	let band2Color = band2.options[band2.selectedIndex].value;
 	let band3Color = band3.options[band3.selectedIndex].value;
 	let band4Color = band4.options[band4.selectedIndex].value;
-	let total = `${band1Band2(band1Color)}.${band1Band2(band2Color)}`;
+	let total = `${band1Band2(band1Color)}${band1Band2(band2Color)}`;
 	total = parseFloat(total) * bandMult(band3Color);
 
 	let m = "";
