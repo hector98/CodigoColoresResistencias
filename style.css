@@ -45,9 +45,12 @@ body {
 	text-align: center;
 	height: 100%;
 	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
 	color: #81F7F3;
+}
+
+.selects option {
+	font-size: 30px;
+	font-weight: bold;
 }
 
 /* pc (landscape) */

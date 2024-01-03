@@ -25,6 +25,22 @@ band4.options[band4.selectedIndex].value = "gold";
 	"gold": "#CDA434"
 }*/
 
+function changeColorText(fondo)
+{
+	console.log(fondo);
+	let color = "black";
+	if(fondo === "brown" | fondo === "black" | fondo === "purple" | fondo === "blue" | fondo === "red" | fondo === "green" )
+	{
+		color = "white";
+	}
+	else
+	{
+		color = "black";
+	}
+
+	return color;
+}
+
 function band1Band2(bands)
 {
 	let r;
@@ -211,25 +227,28 @@ band1.addEventListener("change", (e) => {
 	band1.options[band1.selectedIndex].value = e.target.value;
 	calculate();
 	band1.style.backgroundColor = e.target.value;
+	band1.style.color = changeColorText(e.target.value);
 });
 
 band2.addEventListener("change", (e) => {
 	band2.options[band2.selectedIndex].value = e.target.value;
 	calculate(e.target.value);
 	band2.style.backgroundColor = e.target.value;
+	band2.style.color = changeColorText(e.target.value);
 });
 
 band3.addEventListener("change", (e) => {
 	band3.options[band3.selectedIndex].value = e.target.value;
 	calculate(e.target.value);
 	band3.style.backgroundColor = e.target.value;
-	console.log(e.target.value);
+	band3.style.color = changeColorText(e.target.value);
 });
 
 band4.addEventListener("change", (e) => {
 	band4.options[band4.selectedIndex].value = e.target.value;
 	calculate(e.target.value);
 	band4.style.backgroundColor = e.target.value;
+	band4.style.color = changeColorText(e.target.value);
 });
 
 calculate();
