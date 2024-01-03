@@ -184,7 +184,27 @@ function calculate(b)
 		m = "G";
 	}
 
+	if(countDecimals(total) > 4) {
+		total = total.toFixed(2);
+	}
+
 	result.innerText = `${total}${m}Ω ±${tolerance(band4Color)}%`;
+}
+
+function countDecimals(value) {
+    if (Math.floor(value) === value) return 0;
+    let str = value.toString();
+    if (str.indexOf(".") !== -1 && str.indexOf("e") === -1) {
+        return str.split(".")[1].length;
+    }
+	else if (str.indexOf("e") !== -1) {
+        let e = parseInt(str.split("e-")[1]);
+        let base = str.split("e-")[0].split(".")[1] ? str.split("e-")[0].split(".")[1].length : 0;
+        return base + e;
+    }
+	else {
+        return 0;
+    }
 }
 
 band1.addEventListener("change", (e) => {
