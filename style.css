@@ -108,6 +108,7 @@
 		font-weight: bold;
 		color: #FFFFFF;
 		font-family: Sans-Serif;
+		margin-top: 20px;
 	}
 
 	#title {
@@ -129,6 +130,7 @@
 		color: #FFFFFF;
 		font-family: lucida console;
 		background-color: #989898;
+		padding: 10px 0px;
 	}
 
 	header {
@@ -246,10 +248,12 @@
 
 	#result {
 		text-align: center;
-		font-size: 80px;
+		/* font-size: 80px; */
+		font-size: 2em;
 		font-weight: bold;
 		color: #FFFFFF;
 		font-family: Sans-Serif;
+		margin-top: 10px;
 	}
 
 	#title {
@@ -395,6 +399,7 @@
 		font-weight: bold;
 		color: #FFFFFF;
 		font-family: Sans-Serif;
+		margin-top: 5px;
 	}
 
 	#title {
