@@ -138,29 +138,9 @@ function bandMult(ban3)
 function tolerance(tol)
 {
 	let r;
-	if(tol === "brown")
-	{
-		r = 1;
-	}
-	else if(tol === "red")
+	if(tol === "red")
 	{
 		r = 2;
-	}
-	else if(tol === "green")
-	{
-		r = 0.5;
-	}
-	else if(tol === "blue")
-	{
-		r = 0.25;
-	}
-	else if(tol === "purple")
-	{
-		r = 0.10;
-	}
-	else if(tol === "gray")
-	{
-		r = 0.05;
 	}
 	else if(tol === "gold")
 	{
@@ -184,17 +164,17 @@ function calculate(b)
 	total = parseFloat(total) * bandMult(band3Color);
 
 	let m = "";
-	if(total >= 1000 && total <= 100000)
+	if(total >= 1000 && total <= 1000000)
 	{
 		total /= 1000;
 		m = "K";
 	}
-	else if(total >= 100000 && total <= 100000000)
+	else if(total >= 1000000 && total <= 1000000000)
 	{
-		total /= 100000;
+		total /= 1000000;
 		m = "M";
 	}
-	else if(total >= 100000000)
+	else if(total >= 1000000000)
 	{
 		total /= 100000000;
 		m = "G";
