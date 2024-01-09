@@ -114,6 +114,33 @@ a {
 	color: #0404B4;
 }
 
+#input {
+	background-color: #777777;
+	color: #FFFFFF;
+	text-align: center;
+	border-color: #FFFFFF;
+}
+
+#btnCalculate {
+	background-color: #777777;
+	color: #FFFFFF;
+	text-align: center;
+	border-color: #FFFFFF;
+	pointer: cursor;
+}
+
+#multiplier {
+	background-color: #777777;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+#tolerance {
+	background-color: #777777;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
 /* pc (landscape) */
 @media screen and (min-width: 1025px) {
 	.container-resistencia {
@@ -175,6 +202,28 @@ a {
 		margin-top: 10px;
 		text-align: center;
 		font-size: 50px;
+	}
+
+	#input {
+		width: 80px;
+		font-size: 35px;
+	}
+
+	#multiplier {
+		width: 80px;
+		font-size: 35px;
+	}
+
+	#tolerance {
+		width: 100px;
+		font-size: 35px;
+	}
+
+	#btnCalculate {
+		width: 160px;
+		height: 50px;
+		font-size: 35px;
+		border-radius: 30px;
 	}
 
 	footer {

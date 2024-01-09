@@ -8,6 +8,7 @@ const result = document.getElementById("result");
 const input = document.getElementById("input");
 const multipler = document.getElementById("multiplier");
 const toleranceIn = document.getElementById("tolerance");
+console.log(toleranceIn);
 const btnCalculate = document.getElementById("btnCalculate");
 /*
 band1.options[band1.selectedIndex].value = "brown";
@@ -124,11 +125,14 @@ function colorB3(num)
 
 function multiInput()
 {
-	//let m = multipler.options[multipler.selectedIndex].value;
-	m = "KΩ";
+	let m = multipler.options[multipler.selectedIndex].value;
 	let value = parseFloat(input.value);
 
-	if(m === "KΩ")
+	if(m === "Ω")
+	{
+		value *= 1;
+	}
+	else if(m === "KΩ")
 	{
 		value *= 1000;
 	}
@@ -143,13 +147,12 @@ function multiInput()
 function inputValor()
 {
 	let value = input.value;
-	console.log(multipler.value);
+	let ColorB1;
+	let ColorB2;
 
 	if(value.includes("."))
 	{
 		let valueAux = value.split(".");
-		let ColorB1;
-		let ColorB2;
 
 		if(parseFloat(value) < 0)
 		{
@@ -161,21 +164,27 @@ function inputValor()
 			ColorB1 = colorB1B2(parseInt(valueAux[0]));
 			ColorB2 = colorB1B2(parseInt(valueAux[1]));
 		}
-
-		band1.value = ColorB1;
-		band1.style.backgroundColor = ColorB1;
-		band1.style.color = changeColorText(ColorB1);
-		band2.value = ColorB2;
-		band2.style.backgroundColor = ColorB2;
-		band2.style.color = changeColorText(ColorB2);
 	}
-    
+	else
+	{
+		ColorB1 = colorB1B2(parseInt(value[0]));
+		ColorB2 = colorB1B2(parseInt(value[1]));
+	}
+
+	band1.value = ColorB1;
+	band1.style.backgroundColor = ColorB1;
+	band1.style.color = changeColorText(ColorB1);
+	band2.value = ColorB2;
+	band2.style.backgroundColor = ColorB2;
+	band2.style.color = changeColorText(ColorB2);
+	
 	multiInput();
+	toleranceColor();
+	calculate();
 }
 
 function changeColorText(fondo)
 {
-	console.log(fondo);
 	let color = "black";
 	if(fondo === "brown" | fondo === "black" | fondo === "purple" | fondo === "blue" | fondo === "red" | fondo === "green" )
 	{
@@ -283,23 +292,27 @@ function bandMult(ban3)
 	return r;
 }
 
-function toleranceColor(tol)
+function toleranceColor()
 {
-	let color;
-    if(tol === 2)
+	let tol = toleranceIn.options[toleranceIn.selectedIndex].value;
+	console.log(tol);
+	let color = "red";
+    if(tol === "±2%")
 	{
 		color = "red";
 	}
-	else if(tol === 5)
+	else if(tol === "±5%")
 	{
 		color = "gold";
 	}
-	else
+	else if(tol === "±10%")
 	{
 		color = "silver";
 	}
 
-	return color;
+	band4.value = color;
+	band4.style.backgroundColor = color;
+	band4.style.color = changeColorText(color);
 }
 
 function tolerance(tol)
@@ -354,7 +367,7 @@ function calculate(b)
 	result.innerText = `${total}${m}Ω ±${tolerance(band4Color)}%`;
 	input.value = total;
 	multiplier.value = `${m}Ω`;
-	toleranceIn.value = tolerance(band4Color);
+	toleranceIn.value = `±${tolerance(band4Color)}%`;
 }
 
 function countDecimals(value) {
@@ -403,7 +416,19 @@ band4.addEventListener("change", (e) => {
 
 btnCalculate.addEventListener("click", (e) => {
 	inputValor();
-	toleranceColor(toleranceIn.options[toleranceIn.selectedIndex].value);
+	toleranceColor();
+	calculate();
+})
+
+multiplier.addEventListener("change", (e) => {
+	inputValor();
+	toleranceColor();
+	calculate();
+})
+
+toleranceIn.addEventListener("change", (e) => {
+	inputValor();
+	toleranceColor();
 	calculate();
 })
 
