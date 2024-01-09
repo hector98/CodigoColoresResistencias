@@ -4,6 +4,11 @@ const band3 = document.getElementById("band3");
 const band4 = document.getElementById("band4");
 
 const result = document.getElementById("result");
+
+const input = document.getElementById("input");
+const multipler = document.getElementById("multiplier");
+const toleranceIn = document.getElementById("tolerance");
+const btnCalculate = document.getElementById("btnCalculate");
 /*
 band1.options[band1.selectedIndex].value = "brown";
 band2.options[band2.selectedIndex].value = "black";
@@ -24,6 +29,149 @@ band4.options[band4.selectedIndex].value = "gold";
 	"white": "#FFFFFF",
 	"gold": "#CDA434"
 }*/
+
+function colorB1B2(num)
+{
+	let color = "black";
+	if(num == 1)
+	{
+		color = "brown";
+	}
+	else if(num == 2)
+	{
+		color = "red";
+	}
+	else if(num == 3)
+	{
+		color = "orange";
+	}
+	else if(num == 4)
+	{
+		color = "yellow";
+	}
+	else if(num == 5)
+	{
+		color = "green";
+	}
+	else if(num == 6)
+	{
+		color = "blue";
+	}
+	else if(num == 7)
+	{
+		color = "purple";
+	}
+	else if(num == 8)
+	{
+		color = "gray";
+	}
+	else if(num == 9)
+	{
+		color = "white";
+	}
+
+	return color;
+}
+
+function colorB3(num)
+{
+	let color = "black";
+
+	if(num < 1)
+	{
+		color = "silver";
+	}
+	else if(num < 10)
+	{
+		color = "gold";
+	}
+	else if(num >= 10 && num <= 99)
+	{
+		color = "black";
+	}
+	else if(num > 99 && num < 1000)
+	{
+		color = "brown";
+	}
+	else if(num > 999 && num < 10000)
+	{
+		color = "red";
+	}
+	else if(num > 9999 && num < 100000)
+	{
+		color = "orange";
+	}
+	else if(num > 99999 && num < 1000000)
+	{
+		color = "yellow";
+	}
+	else if(num > 999999 && num < 10000000)
+	{
+		color = "green";
+	}
+	else if(num > 9999999 && num < 100000000)
+	{
+		color = "blue";
+	}
+	else if(num > 99999999 && num < 1000000000)
+	{
+		color = "purple";
+	}
+
+	band3.value = color;
+	band3.style.backgroundColor = color;
+}
+
+function multiInput()
+{
+	//let m = multipler.options[multipler.selectedIndex].value;
+	m = "KΩ";
+	let value = parseFloat(input.value);
+
+	if(m === "KΩ")
+	{
+		value *= 1000;
+	}
+	else if(m === "MΩ")
+	{
+		value *= 1000000;
+	}
+
+	colorB3(value);
+}
+
+function inputValor()
+{
+	let value = input.value;
+	console.log(multipler.value);
+
+	if(value.includes("."))
+	{
+		let valueAux = value.split(".");
+		let ColorB1;
+		let ColorB2;
+
+		if(parseFloat(value) < 0)
+		{
+			ColorB1 = colorB1B2(parseInt(valueAux[0][0]));
+			ColorB2 = colorB1B2(parseInt(valueAux[0][1]));
+		}
+		else
+		{
+			ColorB1 = colorB1B2(parseInt(valueAux[0]));
+			ColorB2 = colorB1B2(parseInt(valueAux[1]));
+		}
+
+		band1.value = ColorB1;
+		band1.style.backgroundColor = ColorB1;
+		band1.style.color = changeColorText(ColorB1);
+		band2.value = ColorB2;
+		band2.style.backgroundColor = ColorB2;
+		band2.style.color = changeColorText(ColorB2);
+	}
+    
+	multiInput();
+}
 
 function changeColorText(fondo)
 {
@@ -135,6 +283,25 @@ function bandMult(ban3)
 	return r;
 }
 
+function toleranceColor(tol)
+{
+	let color;
+    if(tol === 2)
+	{
+		color = "red";
+	}
+	else if(tol === 5)
+	{
+		color = "gold";
+	}
+	else
+	{
+		color = "silver";
+	}
+
+	return color;
+}
+
 function tolerance(tol)
 {
 	let r;
@@ -185,6 +352,9 @@ function calculate(b)
 	}
 
 	result.innerText = `${total}${m}Ω ±${tolerance(band4Color)}%`;
+	input.value = total;
+	multiplier.value = `${m}Ω`;
+	toleranceIn.value = tolerance(band4Color);
 }
 
 function countDecimals(value) {
@@ -230,5 +400,11 @@ band4.addEventListener("change", (e) => {
 	band4.style.backgroundColor = e.target.value;
 	band4.style.color = changeColorText(e.target.value);
 });
+
+btnCalculate.addEventListener("click", (e) => {
+	inputValor();
+	toleranceColor(toleranceIn.options[toleranceIn.selectedIndex].value);
+	calculate();
+})
 
 calculate();
