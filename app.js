@@ -8,7 +8,6 @@ const result = document.getElementById("result");
 const input = document.getElementById("input");
 const multipler = document.getElementById("multiplier");
 const toleranceIn = document.getElementById("tolerance");
-console.log(toleranceIn);
 const btnCalculate = document.getElementById("btnCalculate");
 /*
 band1.options[band1.selectedIndex].value = "brown";

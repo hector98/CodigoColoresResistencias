@@ -121,23 +121,37 @@ a {
 	border-color: #FFFFFF;
 }
 
+#inputValue {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 #btnCalculate {
 	background-color: #777777;
 	color: #FFFFFF;
 	text-align: center;
 	border-color: #FFFFFF;
-	pointer: cursor;
+	cursor: pointer;
+}
+
+#btnCalculate:hover {
+	background-color: #FFFFFF;
+	color: #777777;
+	border-color: #777777;
 }
 
 #multiplier {
 	background-color: #777777;
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	cursor: pointer;
 }
 
 #tolerance {
 	background-color: #777777;
 	color: #FFFFFF;
+	border-color: #FFFFFF;
 	cursor: pointer;
 }
 
@@ -204,19 +218,28 @@ a {
 		font-size: 50px;
 	}
 
+	#inputValue {
+		flex-direction: row;
+		padding-right: 30px;
+		width: 30%;
+	}
+
 	#input {
 		width: 80px;
 		font-size: 35px;
+		margin: 0px 20px 0px 30px;
 	}
 
 	#multiplier {
 		width: 80px;
 		font-size: 35px;
+		margin-right: 20px;
 	}
 
 	#tolerance {
 		width: 100px;
 		font-size: 35px;
+		margin-right: 20px;
 	}
 
 	#btnCalculate {
@@ -303,6 +326,37 @@ a {
 	#title {
 		margin-top: 10px;
 		font-size: 30px;
+	}
+
+	#inputValue {
+		flex-direction: column;
+		width: 30%;
+	}
+
+	#input {
+		width: 60px;
+		font-size: 20px;
+		margin-top: 10px;
+	}
+
+	#multiplier {
+		width: 60px;
+		font-size: 20px;
+		margin-top: 10px;
+	}
+
+	#tolerance {
+		width: 80px;
+		font-size: 20px;
+		margin-top: 10px;
+	}
+
+	#btnCalculate {
+		width: 140px;
+		height: 50px;
+		font-size: 35px;
+		border-radius: 30px;
+		margin-top: 10px;
 	}
 
 	footer {
@@ -458,6 +512,37 @@ a {
 	#title {
 		margin-top: 10px;
 		font-size: 35px;
+	}
+
+	#inputValue {
+		flex-direction: row;
+		width: 30%;
+	}
+
+	#input {
+		width: 60px;
+		font-size: 20px;
+		margin: 10px 10px 0px 0px;
+	}
+
+	#multiplier {
+		width: 60px;
+		font-size: 20px;
+		margin: 10px 10px 0px 0px;
+	}
+
+	#tolerance {
+		width: 80px;
+		font-size: 20px;
+		margin: 10px 10px 0px 0px;
+	}
+
+	#btnCalculate {
+		width: 140px;
+		height: 50px;
+		font-size: 35px;
+		border-radius: 30px;
+		margin-top: 10px;
 	}
 
 	footer {
