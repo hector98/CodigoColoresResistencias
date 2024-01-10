@@ -514,27 +514,28 @@ a {
 		font-size: 35px;
 	}
 
+
 	#inputValue {
-		flex-direction: row;
+		flex-direction: column;
 		width: 30%;
 	}
 
 	#input {
-		width: 60px;
-		font-size: 20px;
-		margin: 10px 10px 0px 0px;
+		width: 70px;
+		font-size: 26px;
+		margin-top: 10px;
 	}
 
 	#multiplier {
-		width: 60px;
-		font-size: 20px;
-		margin: 10px 10px 0px 0px;
+		width: 70px;
+		font-size: 26px;
+		margin-top: 10px;
 	}
 
 	#tolerance {
-		width: 80px;
-		font-size: 20px;
-		margin: 10px 10px 0px 0px;
+		width: 90px;
+		font-size: 26px;
+		margin-top: 10px;
 	}
 
 	#btnCalculate {
